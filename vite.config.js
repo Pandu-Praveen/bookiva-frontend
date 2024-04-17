@@ -25,6 +25,15 @@ export default defineConfig({
       },
     },
   },
+  middlewareMode: true,
+  configureServer: ({ app }) => {
+    app.use(async (ctx, next) => {
+      await next();
+      if (ctx.status === 404) {
+        ctx.url = "/404/"; // Redirect to your custom 404 page
+      }
+    });
+  },
 });
 
 // vite.config.js
