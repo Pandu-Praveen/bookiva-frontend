@@ -35,7 +35,7 @@
     }
 
     .popup-modal-wrapper{
-        height: 93%;
+        height: 100%;
         overflow: scroll;
         position: fixed;
     }
