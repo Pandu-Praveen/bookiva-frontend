@@ -974,12 +974,11 @@
       }
     </style>
     <style>
-      /* Custom styling for the search bar */
       .dataTables_filter input[type="search"] {
-        /* Your custom styles here */
-        border: 1px solid #ccc; /* Example border */
-        padding: 7px; /* Example padding */
-        border-radius: 20px; /* Example border radius */
+        border: 1px solid #ccc;
+        padding: 7px;
+        border-radius: 20px;
+        margin-right: 10px;
       }
     </style>
     <script>
@@ -1533,9 +1532,18 @@
       });
 
       // Function to initialize DataTable for the table with given ID
-      const initializeDataTable = (tableId) => {
-        $(`#${tableId}`).DataTable();
+       const initializeDataTable = (tableId) => {
+        $(`#${tableId}`).DataTable({
+          language: {
+            paginate: {
+              next: ">>",
+              previous: "<<",
+            },
+          },
+          dom: '<"top"pfl<"clear">>rt<"bottom"ip<"clear">>',
+        });
       };
+
 
       // // // Function to update the table with given data and type
       const updateTable = (bookings, type) => {
