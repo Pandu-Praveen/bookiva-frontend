@@ -1264,7 +1264,12 @@
             </form>
           </div>
         `);
-
+        if (window.matchMedia("(min-width: 100px)").matches) {
+          profileSection.css({
+            width: "40%",
+            margin: "0 auto", // Center the div horizontally
+          });
+        }
         // Append the profile section to the body
         $("body").append(profileSection);
 
