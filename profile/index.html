@@ -1252,50 +1252,33 @@
 
         // Create the profile section
         const profileSection = $(`
-           <div id="profileSection" style="max-width: 100%; background-color: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
-            <h3 class="form-title" style="text-align:center;">Profile Details</h3>
-            <form id="createProfileForm">
-              <div class="user-input-box">
-                <label for="fullName" style="font-weight:bold;">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" value="${profiledata.name}" required style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
-              </div>
-              <div class="user-input-box">
-                <label for="email" style="font-weight:bold;">Email ID</label>
-                <input type="email" id="email" name="email" placeholder="Your Email ID" value="${profiledata.email}" readonly style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #f4f4f4;">
-              </div>
-              <div class="user-input-box">
-                <label for="college" style="font-weight:bold;">College Name</label>
-                <input type="text" id="college" name="college" placeholder="College Name" value="${profiledata.college}" required style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
-              </div>
-              <div class="user-input-box">
-                <label for="department" style="font-weight:bold;">Department Ex: (EEE , IT , CSE)</label>
-                <input type="text" id="department" name="department" placeholder="Your Department" value="${profiledata.dept}" required style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
-              </div>
-              <div style="text-align: center;">
-                <button type="button" id="updateButton" style="display: none; padding: 10px 20px; background-color: #009150; color: white; border: none; border-radius: 4px; cursor: pointer;">Update</button>
-                <button type="button" id="cancelButton" style="display: none; padding: 10px 20px; background-color: #CF1020; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
-              </div>
-            </form>
-          </div>
-        `);
-        if (window.matchMedia("(min-width: 100px)").matches) {
-          profileSection.css({
-            width: "40%",
-            margin: "0 auto", // Center the div horizontally
-          });
-        }
+        <div id="profileSection" style="max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <h3 class="form-title" style="text-align:center;">Profile Details</h3>
+    <form id="createProfileForm">
+        <div class="user-input-box">
+            <label for="fullName" style="font-weight:bold;">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" value="${profiledata.name}" required style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="user-input-box">
+            <label for="email" style="font-weight:bold;">Email ID</label>
+            <input type="email" id="email" name="email" placeholder="Your Email ID" value="${profiledata.email}" readonly style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #f4f4f4;">
+        </div>
+        <div class="user-input-box">
+            <label for="college" style="font-weight:bold;">College Name</label>
+            <input type="text" id="college" name="college" placeholder="College Name" value="${profiledata.college}" required style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="user-input-box">
+            <label for="department" style="font-weight:bold;">Department Ex: (EEE , IT , CSE)</label>
+            <input type="text" id="department" name="department" placeholder="Your Department" value="${profiledata.dept}" required style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div style="text-align: center;">
+            <button type="button" id="updateButton" style="padding: 10px 20px; background-color: #009150; color: white; border: none; border-radius: 4px; cursor: pointer;">Update</button>
+        </div>
+    </form>   
+</div>`);
+        
         // Append the profile section to the body
         $("body").append(profileSection);
-
-        // Function to handle changes in form fields
-        const handleInputChange = () => {
-          $("#updateButton").show();
-          $("#cancelButton").show();
-        };
-
-        // Add event listeners to form inputs
-        $("#name, #college, #department").on("input", handleInputChange);
-
         // Add event listener to update button
         $("#updateButton").on("click", function () {
           const updatedName = $("#name").val();
@@ -1328,14 +1311,6 @@
               console.error("Error:", error);
               // Handle error
             });
-        });
-
-        // Add event listener to cancel button
-        $("#cancelButton").on("click", function () {
-          // Reset form fields or any other action
-          // Hide update and cancel buttons again
-          $("#updateButton").hide();
-          $("#cancelButton").hide();
         });
 
         return profileSection; // Return the profile section
