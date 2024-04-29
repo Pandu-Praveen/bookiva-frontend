@@ -1284,6 +1284,14 @@
           const updatedName = $("#name").val();
           const updatedCollege = $("#college").val();
           const updatedDept = $("#department").val();
+           const button = $(this);
+
+          button.prop("disabled", true); // Disable the button to prevent multiple clicks
+          button.html("Updating..."); // Change button text to Loading...
+          button.css({
+            transition: "background-color 0.3s ease",
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Fade the button to a semi-transparent black color
+          });
 
           // Perform update request
           fetch(API_LOCAL + "/updateprofile", {
@@ -1310,6 +1318,13 @@
             .catch((error) => {
               console.error("Error:", error);
               // Handle error
+            }).finally(() => {
+              // Revert button style to normal
+              button.prop("disabled", false); // Re-enable the button
+              button.html("Update"); // Change button text back to Update
+              button.css({
+                backgroundColor: "#009150", // Restore original background color
+              });
             });
         });
 
