@@ -194,6 +194,7 @@
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ name, dept, college, email, password }),
+            credentials: "include"
           })
             .then((res) => {
               if (res.status === 500) {
