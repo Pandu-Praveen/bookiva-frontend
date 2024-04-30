@@ -993,14 +993,16 @@
               if (booking.status === "denied_temp") {
                 acceptButtonStyle =
                   "background-color: #009150; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;opacity: 0.5;cursor: not-allowed;";
+                newRow.append(
+                  `<td><button style="${acceptButtonStyle}">Accept</button></td>`
+                );
               } else {
                 acceptButtonStyle =
                   "background-color: #009150; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;";
+                newRow.append(
+                  `<td><button style="${acceptButtonStyle}" onclick="acceptBooking(${originalIndex}, 'admin-${currentState}-records', '${currentState}')" data-index="${originalIndex}" id="act">Accept</button></td>`
+                );
               }
-
-              newRow.append(
-                `<td><button style="${acceptButtonStyle}" onclick="acceptBooking(${index}, '${tableId}', '${dataPending}')" data-index="${index}" id="act" >Accept</button></td>`
-              );
               newRow.append(
                 `<td><button style="${rejectButtonStyle}" onclick="rejectBooking(${index}, '${tableId}', '${dataPending}')" data-index="${index}" id="rej">Reject</button></td>`
               );
@@ -1373,15 +1375,18 @@
               if (booking.status === "denied_temp") {
                 acceptButtonStyle =
                   "background-color: #009150; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;opacity: 0.5;cursor: not-allowed;";
+                newRow.append(
+                  `<td><button style="${acceptButtonStyle}">Accept</button></td>`
+                );
               } else {
                 acceptButtonStyle =
                   "background-color: #009150; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;";
+                newRow.append(
+                  `<td><button style="${acceptButtonStyle}" onclick="acceptBooking(${originalIndex}, 'admin-${currentState}-records', '${currentState}')" data-index="${originalIndex}" id="act">Accept</button></td>`
+                );
               }
               newRow.append(
-                `<td><button style="${acceptButtonStyle}" onclick="acceptBooking(${originalIndex}, 'admin-${currentState}-records', '${currentState}')" data-index="${originalIndex}" id="act">Accept</button></td>`
-              );
-              newRow.append(
-                `<td><button style="${rejectButtonStyle}" onclick="rejectBooking(${originalIndex}, 'admin-${currentState}-records', '${currentState}')" data-index="${originalIndex}" id="rej">Reject</button></td>`
+                `<td><button style="${rejectButtonStyle}" onclick="rejectBooking(${index}, '${tableId}', '${dataPending}')" data-index="${index}" id="rej">Reject</button></td>`
               );
             } else if (currentState === "accepted") {
               newRow.append(
