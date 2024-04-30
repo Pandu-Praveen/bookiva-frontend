@@ -61,7 +61,7 @@ async function getmanagementprebook() {
   DATE = haLL.DATE;
   console.log(DATE);
   document.querySelector(".hall-name").innerHTML = HALL;
-  document.querySelector(".hall-image").setAttribute("src", "/sigma.jpg");
+  document.querySelector(".hall-image").setAttribute("src", "/images/sigma1.jpeg");
   formattedDate = [];
 
   DATE.forEach((element) => {
