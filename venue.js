@@ -34,6 +34,10 @@ const renderCalendar = async (venue, isManagement) => {
         formattedDates.push(date.split("-").reverse().join("-").trim());
       }
       const loginBtn = document.getElementById("login-btn");
+      loginBtn.innerText = "Loading...";
+      // Step 2: Apply a CSS class to make the button appear faded
+      loginBtn.classList.add("faded");
+      loginBtn.disabled = true;
       if (isManagement) {
         async function managementprebook() {
           await fetch(API_LOCAL + "/managementprebook", {
@@ -62,6 +66,9 @@ const renderCalendar = async (venue, isManagement) => {
             credentials: "include",
           }).then((res) => {
             if (res.status === 200) {
+              loginBtn.innerText = "Book Now";
+              loginBtn.classList.remove("faded");
+              loginBtn.disabled = false; // Step 5: Re-enable the button
               loginBtn.setAttribute("href", "/book/");
             }
           });
