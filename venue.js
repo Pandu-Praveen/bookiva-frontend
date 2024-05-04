@@ -49,6 +49,9 @@ const renderCalendar = async (venue, isManagement) => {
             credentials: "include",
           }).then((res) => {
             if (res.status === 200) {
+              loginBtn.innerText = "Book Now";
+              loginBtn.classList.remove("faded");
+              loginBtn.disabled = false; 
               loginBtn.setAttribute("href", "/managementbook/");
             }
           });
