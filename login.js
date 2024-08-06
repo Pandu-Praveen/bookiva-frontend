@@ -57,12 +57,14 @@ formEl.addEventListener("submit", async (event) => {
         } else if (data.role == "USER") {
           location.href = "/venues/";
         }
-      } else if (data.message === "Invalid email") {
-        alert("Invalid Email or Password");
-        signBtn.innerHTML = `<span class="sign-in butt-main ff-inter fs-3s">Sign In</span>`;
-        signBtn.classList.remove("disabled");
-      } else if (data.message === "Invalid password") {
-        alert("Invalid Password");
+      } 
+      // else if (data.message === "Invalid email") {
+      //   alert("Invalid Email or Password");
+      //   signBtn.innerHTML = `<span class="sign-in butt-main ff-inter fs-3s">Sign In</span>`;
+      //   signBtn.classList.remove("disabled");
+      // } 
+      else if (data.message === "Invalid email or password" || data.status==404) {
+        alert("Invalid email or password");
         signBtn.innerHTML = `<span class="sign-in butt-main ff-inter fs-3s">Sign In</span>`;
         signBtn.classList.remove("disabled");
       } else if (data.message === "Internal server error") {
